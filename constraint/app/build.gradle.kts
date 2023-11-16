@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.chap3_18"
-    compileSdk = 34
+    namespace = "com.example.constraint"
+    compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.chap3_18"
+        applicationId = "com.example.constraint"
         minSdk = 28
         targetSdk = 33
         versionCode = 1
@@ -30,11 +30,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "1.8"
     }
     buildFeatures {
         compose = true
@@ -51,7 +51,7 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-compose:1.8.0")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
