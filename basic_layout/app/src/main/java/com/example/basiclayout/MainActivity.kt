@@ -3,13 +3,17 @@ package com.example.basiclayout
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -22,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.example.basiclayout.ui.theme.BasiclayoutTheme
@@ -37,8 +42,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     //DialogEx()
-                    CustomDialog()
-
+                    //CustomDialog()
+                    DropDownMenuEx()
                 }
             }
         }
@@ -96,7 +101,7 @@ fun CustomDialog() {
                 Column(Modifier.padding(8.dp)) {
                     Text("카운터")
                     Text("버튼을 눌러 카운트 버튼을 조절해보세요")
-                    Row (Modifier.align(Alignment.CenterHorizontally)){
+                    Row(Modifier.align(Alignment.CenterHorizontally)) {
                         Button(onClick = {
                             openDialog = false
                         }) {
@@ -121,11 +126,40 @@ fun CustomDialog() {
     }
 }
 
+@Composable
+fun DropDownMenuEx() {
+    var expandDropDownMenu by remember { mutableStateOf(false) }
+    var counter by remember { mutableStateOf(0) }
+    Column {
+        Text("카운터 : $counter")
+
+        Box {
+            Button(onClick = { expandDropDownMenu = true }) {
+                Text(text = "드롭다운 메뉴 열기")
+            }
+            DropdownMenu(
+                expanded = expandDropDownMenu,
+                onDismissRequest = {
+                    expandDropDownMenu = false
+
+                }
+            ) {
+                DropdownMenuItem(text = { Text("+1") },
+                    onClick = {
+                        counter ++
+                        expandDropDownMenu = false })
+
+            }
+        }
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     BasiclayoutTheme {
         //DialogEx()
-        CustomDialog()
+        //  CustomDialog()
+        DropDownMenuEx()
     }
 }
