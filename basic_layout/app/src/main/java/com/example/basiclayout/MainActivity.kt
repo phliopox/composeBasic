@@ -11,18 +11,25 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
@@ -53,7 +60,8 @@ class MainActivity : ComponentActivity() {
                     //DialogEx()
                     //CustomDialog()
                     //DropDownMenuEx()
-                    snackBarEx()
+                    //snackBarEx()
+                    BottomAppBarEx()
                 }
             }
         }
@@ -196,6 +204,34 @@ fun snackBarEx() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun BottomAppBarEx(){
+  //  val snackbarHostState = remember {  }
+  /*  val scope = rememberCoroutineScope()
+    Scaffold {
+        Column(Modifier.padding(it)) {
+
+        }
+    }
+    BottomAppBar {
+
+    }
+*/
+    var selectedItem by remember { mutableStateOf(0) }
+    val items = listOf("Songs", "Artists", "Playlists")
+    NavigationBar {
+        items.forEachIndexed { index, item ->
+            NavigationBarItem(
+                icon = { Icon(Icons.Filled.Favorite, contentDescription = item) },
+                label = { Text(item) },
+                selected = selectedItem == index,
+                onClick = { selectedItem = index }
+            )
+        }
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
@@ -203,6 +239,7 @@ fun GreetingPreview() {
         //DialogEx()
         //  CustomDialog()
         //DropDownMenuEx()
-        snackBarEx()
+        //snackBarEx()
+        BottomAppBarEx()
     }
 }
