@@ -1,4 +1,4 @@
-package com.example.movie.ui.component.button
+package com.example.movie.ui.component.buttons
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
@@ -17,10 +17,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.movie.ui.theme.MovieTheme
 import com.example.movie.ui.theme.Paddings
 import com.example.movie.ui.theme.colorscheme
-import com.example.movie.ui.theme.underlinedDialogButton
 
 @Composable
-fun UnderlinedTextButton(
+fun SecondaryBorderlessButton(
     modifier: Modifier = Modifier,
     @StringRes id: Int? = null,
     text: String = "",
@@ -42,7 +41,7 @@ fun UnderlinedTextButton(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(text = id?.let { stringResource(id = id) } ?: text,
-                style = MaterialTheme.typography.underlinedDialogButton,
+                style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(Paddings.small))
         }
     }
@@ -50,9 +49,9 @@ fun UnderlinedTextButton(
 
 @Preview
 @Composable
-fun PreviewUnderlinedTextButton() {
+fun PreviewS2Button() {
     MovieTheme {
-        UnderlinedTextButton(text = "SUBMIT") {
+        SecondaryButton(text = "SUBMIT") {
         }
     }
 }

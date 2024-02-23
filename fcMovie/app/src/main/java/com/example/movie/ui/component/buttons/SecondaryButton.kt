@@ -1,4 +1,4 @@
-package com.example.movie.ui.component.button
+package com.example.movie.ui.component.buttons
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
@@ -21,7 +21,7 @@ import com.example.movie.ui.theme.Paddings
 import com.example.movie.ui.theme.colorscheme
 
 @Composable
-fun SecondaryBorderlessButton(
+fun SecondaryButton(
     modifier: Modifier = Modifier,
     @StringRes id: Int? = null,
     text: String = "",
@@ -31,6 +31,7 @@ fun SecondaryBorderlessButton(
         modifier = modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.large,
         onClick = onClick,
+        border = BorderStroke(2.dp,MaterialTheme.colorscheme.secondary),
         colors = ButtonDefaults.buttonColors(
             contentColor = MaterialTheme.colorscheme.secondary,
             containerColor = MaterialTheme.colorscheme.background,
@@ -51,7 +52,7 @@ fun SecondaryBorderlessButton(
 
 @Preview
 @Composable
-fun PreviewS2Button() {
+fun PreviewSButton() {
     MovieTheme {
         SecondaryButton(text = "SUBMIT") {
         }
