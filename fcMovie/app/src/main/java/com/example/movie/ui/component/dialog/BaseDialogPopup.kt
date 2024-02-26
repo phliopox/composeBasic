@@ -16,6 +16,7 @@ import com.example.movie.ui.component.dialog.components.content.DialogContentWra
 import com.example.movie.ui.component.dialog.components.title.DialogTitleWrapper
 import com.example.movie.ui.component.models.dialog.DialogButton
 import com.example.movie.ui.component.models.dialog.DialogContent
+import com.example.movie.ui.component.models.dialog.DialogText
 import com.example.movie.ui.component.models.dialog.DialogTitle
 import com.example.movie.ui.theme.MovieTheme
 import com.example.movie.ui.theme.Paddings
@@ -70,6 +71,14 @@ fun BaseDialogPopup(
 @Composable
 fun PreviewBasePopup() {
     MovieTheme {
-        BaseDialogPopup()
+        BaseDialogPopup(
+            dialogTitle = DialogTitle.Header("TITLE"),
+            dialogContent = DialogContent.Large(
+                DialogText.Default("abcde abcde abcde abcde abcde abcde abcde abcde abcde abcde abcde abcde abcde abcde")
+            ),
+            buttons = listOf(
+                DialogButton.Primary("Okay") {}
+            )
+        )
     }
 }

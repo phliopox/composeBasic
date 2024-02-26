@@ -11,7 +11,7 @@ sealed class DialogContent {
     ) : DialogContent()
 
     data class Rating(
-        val dialogText : DialogText.Default
+        val dialogText : DialogText.Rating
     ) : DialogContent()
 
 }
