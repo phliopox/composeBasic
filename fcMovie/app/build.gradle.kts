@@ -58,6 +58,7 @@ android {
 
 dependencies {
 
+    implementation("com.google.android.gms:play-services-drive:17.0.0")
     val nav_version = rootProject.extra["nav_version"]
     val coil_version = rootProject.extra["coil_version"]
     val hilt_version = rootProject.extra["hilt_version"]
