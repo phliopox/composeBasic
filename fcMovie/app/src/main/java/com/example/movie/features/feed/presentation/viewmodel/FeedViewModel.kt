@@ -60,7 +60,7 @@ class FeedViewModel @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override fun refreshFeed() {
+   /* override fun refreshFeed() {
         TODO("Not yet implemented")
-    }
+    }*/
 }

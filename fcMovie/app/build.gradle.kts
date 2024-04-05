@@ -5,7 +5,6 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id ("androidx.navigation.safeargs.kotlin")
-
 }
 
 android {
@@ -107,6 +106,4 @@ dependencies {
 
     // Gson
     implementation("com.google.code.gson:gson:$gson_version")
-
-
 }
